@@ -4,6 +4,7 @@ using FluentValidationSample.Models.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FluentValidationSample.Migrations
 {
     [DbContext(typeof(AkademiIstanbulContext))]
-    partial class AkademiIstanbulContextModelSnapshot : ModelSnapshot
+    [Migration("20240421221400_CreatedUniversityTable")]
+    partial class CreatedUniversityTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

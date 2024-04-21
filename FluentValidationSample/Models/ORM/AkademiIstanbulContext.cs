@@ -10,4 +10,5 @@ public class AkademiIstanbulContext : DbContext
     }
 
     public DbSet<Student> Students { get; set; }
+    public DbSet<University> Universities { get; set; }
 }
