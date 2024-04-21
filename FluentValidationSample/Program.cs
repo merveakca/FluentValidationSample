@@ -24,6 +24,9 @@ public class Program
 
         builder.Services.AddScoped<IValidator<CreateStudentRequestDto>, CreateStudentRequestDtoValidator>();
         builder.Services.AddScoped<IValidator<UpdateStudentRequestDto>, UpdateStudentRequestDtoValidator>();
+        builder.Services.AddScoped<IValidator<AddUniversityRequestDto>, AddUniversityRequestDtoValidator>();
+        builder.Services.AddScoped<IValidator<UpdateUniversityRequestDto>, UpdateUniversityRequestDtoValidator>();
+
 
         var app = builder.Build();
 
