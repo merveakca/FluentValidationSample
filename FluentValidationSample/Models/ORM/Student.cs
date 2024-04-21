@@ -12,7 +12,6 @@ public class Student : BaseEntity
     public DateTime? BirthDate { get; set; }
 
     public int? UniversityId { get; set; }
-
     [ForeignKey("UniversityId")]
     public University University { get; set; }
 }
