@@ -1,4 +1,9 @@
 
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidationSample.Models.DTO;
+using FluentValidationSample.Models.Validations;
+
 namespace FluentValidationSample;
 
 public class Program
@@ -14,6 +19,12 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddFluentValidationAutoValidation()
+            .AddFluentValidationClientsideAdapters();
+
+        builder.Services.AddScoped<IValidator<CreateStudentRequestDto>, CreateStudentRequestDtoValidator>();
+        builder.Services.AddScoped<IValidator<UpdateStudentRequestDto>, UpdateStudentRequestDtoValidator>();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -26,7 +37,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

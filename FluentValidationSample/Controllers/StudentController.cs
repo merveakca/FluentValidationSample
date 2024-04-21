@@ -17,6 +17,16 @@ public class StudentController : ControllerBase
     [HttpPost]
     public IActionResult AddStudent(CreateStudentRequestDto requestModel)
     {
+        Student student = new Student();
+        student.Name = requestModel.Name;
+        student.Surname = requestModel.Surname;
+        student.Email = requestModel.Email;
+        student.Phone = requestModel.Phone;
+        student.BirthDate = requestModel.BirthDate;
+
+        _context.Students.Add(student);
+        _context.SaveChanges();
+
         return Ok();
     }
 }
